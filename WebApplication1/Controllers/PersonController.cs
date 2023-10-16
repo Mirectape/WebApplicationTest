@@ -3,6 +3,7 @@ using WebApplication1.Models;
 using WebApplication1.ContextFolder;
 using System.Collections.Immutable;
 using Microsoft.EntityFrameworkCore;
+using System.Net;
 
 namespace WebApplication1.Controllers
 {
@@ -55,6 +56,17 @@ namespace WebApplication1.Controllers
                         Description = description
                     });
 
+                db.SaveChanges();
+            }
+            return Redirect("~/");
+        }
+
+        public IActionResult DeleteData(int ID)
+        {
+            using (var db = new DataContext())
+            {
+                var deletePerson = db.Persons.Where((p) => p.ID == ID).Single();
+                db.Persons.Remove(deletePerson);
                 db.SaveChanges();
             }
             return Redirect("~/");
