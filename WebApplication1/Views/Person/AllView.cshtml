@@ -1,0 +1,49 @@
+﻿@using Microsoft.EntityFrameworkCore;
+@using WebApplication1.Models
+@{
+    ViewData["Title"] = "AllView";
+}
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>All people</title>
+        <link href="~/css/stylecss.css" rel="stylesheet"/>
+    </head>
+
+    <body>
+    <div class="fontStyle"
+         align="center">
+
+            <table border="1">
+                <tr >
+                    <td width="200">ID</td>
+                    <td width="200">First Name</td>
+                    <td width="200">Second Name</td>
+                    <td width="200">Paternal Name</td>
+                </tr>
+
+            @foreach (Person person in ViewBag.Persons)
+                {
+                    <tr>
+                    <td width="200">
+                        @* <a href="/Person/ShowPersonFullData" onclick=SelectPersons(person.ID) name="ID" value=@person.ID>@person.ID</a> *@
+
+                        <form action="~/Person/ShowPersonFullData" method="post">
+                            <p><input type="submit" value="@person.ID" name="ID"/></p>
+                        </form>
+                    </td>
+
+
+
+                    <td width="200">@person.FirstName</td>
+                    <td width="200">@person.SecondName</td>
+                    <td width="200">@person.PaternalName</td>
+                    </tr>
+                }
+            </table>
+
+            <br />
+
+            <a href="/Person/Add" class="btn">Add</a>
+        </div>
+    </body>
+</html>

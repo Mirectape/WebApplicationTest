@@ -1,0 +1,47 @@
+﻿@using WebApplication1.Models
+@{
+    ViewData["Title"] = "AllView";
+}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>ChosenPerson</title>
+    <link href="~/css/stylecss.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="fontStyle"
+         align="center">
+
+        <table border="1">
+            <tr>
+                <td width="200">ID</td>
+                <td width="200">First Name</td>
+                <td width="200">Second Name</td>
+                <td width="200">Paternal Name</td>
+                <td width="200">Phone Number</td>
+                <td width="200">Address</td>
+                <td width="200">Description</td>
+            </tr>
+
+            @foreach (Person person in ViewBag.ChosenPersons)
+            {
+                <tr>
+                    <td width="200">
+                        <a href="/Person/AllView">@person.ID</a>
+                    </td>
+
+
+                    <td width="200">@person.FirstName</td>
+                    <td width="200">@person.SecondName</td>
+                    <td width="200">@person.PaternalName</td>
+                    <td width="200">@person.PhoneNumber</td>
+                    <td width="200">@person.Address</td>
+                    <td width="200">@person.Description</td>
+                </tr>
+            }
+        </table>
+
+        <br />
+    </div>
+</body>
+</html>

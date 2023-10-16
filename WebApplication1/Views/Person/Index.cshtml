@@ -1,0 +1,38 @@
+﻿@using WebApplication1.Models
+@model List<Person>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>People in a telephone book</title>
+        <link href="~/css/stylecss.css" rel="stylesheet" />
+    </head>
+
+    <body>
+        <p class="fontStyle"
+            align="center">
+
+            <table border="1">
+                <tr>
+                    <td width="200">ID</td>
+                    <td width="200">First Name</td>
+                    <td width="200">Second Name</td>
+                    <td width="200">Paternal Name</td>
+                </tr>
+
+                
+                    @foreach(var person in Model)
+                    {
+                        <tr>
+                            <td width="200">@person.ID</td>
+                            <td width="200">@person.FirstName</td>
+                            <td width="200">@person.SecondName</td>
+                            <td width="200">@person.PaternalName</td>
+                        </tr>
+                    }
+            </table>
+        </p>
+
+    </body>
+
+</html>
