@@ -1,0 +1,38 @@
+﻿@using WebApplication1.Models
+@model Person 
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Add Person</title>
+    <link href="~/css/stylecss.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="brd">
+        <form action="~/Person/EditPerson" method="post">
+            
+            <input type="hidden" name="ID" value="@Model.ID"/>
+
+            <label>First Name</label><br />
+            <input type="text" name="firstName" value="@Model.FirstName" /><br />
+
+            <label>Second Name</label><br />
+            <input type="text" name="secondName" value="@Model.SecondName" /><br />
+
+            <label>Paternal Name</label><br />
+            <input type="text" name="paternalName" value="@Model.PaternalName" /><br />
+
+            <label>PhoneNumber</label><br />
+            <input type="text" name="phoneNumber" value="@Model.PhoneNumber" /><br />
+
+            <label>Address</label><br />
+            <input type="text" name="address" value="@Model.Address" /><br />
+
+            <label>Description</label><br />
+            <input type="text" name="description" value="@Model.Description" /><br />
+
+            <p><input type="submit" value="Submit" /></p>
+        </form>
+    </div>
+    <hr />
+</body>
+</html>

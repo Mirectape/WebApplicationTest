@@ -20,6 +20,7 @@
                     <td width="200">Second Name</td>
                     <td width="200">Paternal Name</td>
                     <td width="200">Delete</td>
+                    <td width="200">Edit</td>
                 </tr>
 
             @foreach (Person person in ViewBag.Persons)
@@ -44,6 +45,14 @@
                             <p><input type="submit" value="@person.ID" name="ID" />Delete</p>
                         </form>
                     </td>
+                    
+                    <td width ="200">
+                        <form action="~/Person/Edit" method="put">
+                            <p><input type="submit" value="@person.ID" name="ID" />Edit</p>
+                        </form>
+                    </td>
+
+
                     </tr>
                 }
             </table>
