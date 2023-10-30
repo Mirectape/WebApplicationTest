@@ -1,14 +1,25 @@
 ﻿@using WebApplication1.Models
+@{
+    ViewData["Title"] = "Add";
+    Layout = "_Layout";
+}
 @model Person 
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Add Person</title>
-    <link href="~/css/stylecss.css" rel="stylesheet" />
+    <style type="text/css">
+
+        .brd {
+            border: 4px double black;
+            background: #e9e5e5;
+            padding: 20px;
+        }
+    </style>
 </head>
 <body>
     <div class="brd">
-        <form action="~/Person/EditPerson" method="post">
+        <form action="~/Home/EditPerson" method="post">
             
             <input type="hidden" name="ID" value="@Model.ID"/>
 

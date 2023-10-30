@@ -2,11 +2,19 @@
 @using WebApplication1.Models
 @{
     ViewData["Title"] = "AllView";
+    Layout = "_Layout";
 }
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>All people</title>
-        <link href="~/css/stylecss.css" rel="stylesheet"/>
+    <style type="text/css">
+
+        .brd {
+            border: 4px double black;
+            background: #e9e5e5; 
+            padding: 20px; 
+        }
+    </style>
     </head>
 
     <body>
@@ -27,9 +35,9 @@
                 {
                     <tr>
                     <td width="200">
-                        @* <a href="/Person/ShowPersonFullData" onclick=SelectPersons(person.ID) name="ID" value=@person.ID>@person.ID</a> *@
+                        @* <a href="/Home/ShowPersonFullData" onclick=SelectPersons(person.ID) name="ID" value=@person.ID>@person.ID</a> *@
 
-                        <form action="~/Person/ShowPersonFullData" method="put">
+                        <form action="~/Home/PersonFullData" method="put">
                             <p><input type="submit" value="@person.ID" name="ID"/></p>
                         </form>
                     </td>
@@ -41,13 +49,13 @@
                     <td width="200">@person.PaternalName</td>
 
                     <td width ="200">
-                        <form action="~/Person/DeleteData" method="delete">
+                        <form action="~/Home/DeletePerson" method="delete">
                             <p><input type="submit" value="@person.ID" name="ID" />Delete</p>
                         </form>
                     </td>
                     
                     <td width ="200">
-                        <form action="~/Person/Edit" method="put">
+                        <form action="~/Home/Edit" method="put">
                             <p><input type="submit" value="@person.ID" name="ID" />Edit</p>
                         </form>
                     </td>
@@ -58,8 +66,6 @@
             </table>
 
             <br />
-
-            <a href="/Person/Add" class="btn">Add</a>
         </div>
     </body>
 </html>
