@@ -31,8 +31,6 @@ namespace WebApplication1.Controllers
         [HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(UserLogin model)
         {
-            if (ModelState.IsValid)
-            {
                 var loginResult = await _signInManager.PasswordSignInAsync(model.Username,
                     model.Password,
                     false,
@@ -47,8 +45,6 @@ namespace WebApplication1.Controllers
 
                     return RedirectToAction("AllView", "Home");
                 }
-
-            }
 
             ModelState.AddModelError("", "User is not found");
             return View(model);
@@ -90,6 +86,22 @@ namespace WebApplication1.Controllers
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("AllView", "Home");
+        }
+
+        [HttpGet]
+        public IActionResult Edit()
+        {
+            return View(_userManager.Users);
+        }
+
+        public async Task<IActionResult> Delete(string id)
+        {
+            User user = await _userManager.FindByIdAsync(id);
+            if (user != null)
+            {
+                var result = await _userManager.DeleteAsync(user);
+            }
+            return RedirectToAction("Edit", "Account");
         }
     }
 }

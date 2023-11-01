@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using WebApplication1.AuthPersonApp;
 using WebApplication1.Interfaces;
 using WebApplication1.Models;
 
@@ -8,7 +10,7 @@ namespace WebApplication1.Controllers
     public class HomeController : Controller
     {
         private readonly IPersonData _personData;
-       // private readonly ILogger _log;
+        // private readonly ILogger _log;
 
         public HomeController(IPersonData personData)
         {
@@ -57,6 +59,7 @@ namespace WebApplication1.Controllers
             return View();
         }
 
+        [Authorize(Roles ="Admin")]
         public IActionResult DeletePerson(int ID)
         {
             var deletePerson = _personData.GetPeople().Where((p) => p.ID == ID).Single();
@@ -64,6 +67,7 @@ namespace WebApplication1.Controllers
             return Redirect("~/");
         }
 
+        [Authorize(Roles = "Admin")]
         public IActionResult Edit(int ID)
         {
             var persons = _personData.GetPeople().AsQueryable();
