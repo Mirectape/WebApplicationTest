@@ -82,6 +82,7 @@ namespace WebApplication1.Controllers
             var editPerson = _personData.GetPeople().Where((p) => p.ID == ID).Single();
             editPerson.FirstName = firstName;
             editPerson.SecondName = secondName;
+            editPerson.PaternalName = paternalName;
             editPerson.PhoneNumber = phoneNumber;
             editPerson.Address = address;
             editPerson.Description = description;
