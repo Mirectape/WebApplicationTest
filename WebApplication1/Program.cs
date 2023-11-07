@@ -15,7 +15,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<PersonDbContext>(options => options.UseSqlServer(
                 builder.Configuration.GetConnectionString("DefaultConnection")));
-builder.Services.AddTransient<IPersonData, PersonData>();
+builder.Services.AddTransient<IPersonData, PersonDataApi>();
 
 builder.Services.AddMvc(options => options.EnableEndpointRouting = false);
 

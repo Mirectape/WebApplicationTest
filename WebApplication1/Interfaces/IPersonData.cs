@@ -6,7 +6,7 @@ namespace WebApplication1.Interfaces
     {
         IEnumerable<Person> GetPeople();
         void AddPerson(Person person);
-        void RemovePerson(Person person);
+        void RemovePerson(int id);
 
         /// <summary>
         /// To what id we put an updated person

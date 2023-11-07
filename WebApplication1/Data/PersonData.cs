@@ -19,9 +19,9 @@ namespace WebApplication1.Data
             _context.SaveChanges();
         }
 
-        public void RemovePerson(Person person)
+        public void RemovePerson(int id)
         {
-            _context.People.Remove(person);
+            _context.People.Remove(GetPersonById(id));
             _context.SaveChanges();
         }
 
@@ -35,6 +35,11 @@ namespace WebApplication1.Data
         public IEnumerable<Person> GetPeople() 
         {
             return _context.People;
+        }
+
+        public Person GetPersonById(int id)
+        {
+            return _context.People.Where(p => p.ID == id).Single();
         }
     }
 }

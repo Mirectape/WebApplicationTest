@@ -62,8 +62,7 @@ namespace WebApplication1.Controllers
         [Authorize(Roles ="Admin")]
         public IActionResult DeletePerson(int ID)
         {
-            var deletePerson = _personData.GetPeople().Where((p) => p.ID == ID).Single();
-            _personData.RemovePerson(deletePerson);
+            _personData.RemovePerson(ID);
             return Redirect("~/");
         }
 
